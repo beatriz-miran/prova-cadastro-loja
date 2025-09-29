@@ -46,4 +46,8 @@ public class ProdutoC {
     public void setQtdEst(int qtdEst){
         this.qtdEst = qtdEst;
     }
+    
+    public Object[] obterDados(){
+     return new Object[] {id, nome, descr, preco, qtdEst};
+    }
 }
