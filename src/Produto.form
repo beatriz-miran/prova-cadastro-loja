@@ -76,16 +76,11 @@
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="btnListar" max="32767" attributes="0"/>
-                          <Component id="btnCadastrar" max="32767" attributes="0"/>
-                      </Group>
+                      <Component id="btnCadastrar" min="-2" pref="117" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
-                          <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="btnLimpar" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="btnVoltar" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="43" max="32767" attributes="0"/>
               <Component id="jScrollPane3" min="-2" max="-2" attributes="0"/>
@@ -124,10 +119,7 @@
                   <Component id="btnLimpar" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnListar" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnVoltar" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="btnVoltar" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -179,11 +171,6 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnLimparActionPerformed"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="btnListar">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Listar produtos"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtNome">
     </Component>
