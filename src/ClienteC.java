@@ -118,4 +118,8 @@ public class ClienteC {
             return null;
         }
     }
+     
+     public Object[] obterDados(){
+     return new Object[] {id, nome, email, telefone};
+    }
 }

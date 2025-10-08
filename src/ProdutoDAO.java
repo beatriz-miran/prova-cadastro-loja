@@ -1,8 +1,11 @@
-
+    
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -24,21 +27,22 @@ public class ProdutoDAO {
     }
 
     public void inserir(ProdutoC produto) {
-        String sql = "INSERT INTO Produto (pro_nome, pro_descricao, prod_preco, prod_estoque) VALUES(?, ?, ?, ?);";
+        String sql = "INSERT INTO Produto(pro_id, pro_nome, pro_descricao, pro_preco, pro_estoque) VALUES(?, ?, ?, ?, ?);";
 
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
-            stmt.setString(1, produto.getNome());
-            stmt.setString(2, produto.getDescr());
-            stmt.setString(3, Float.toString(produto.getPreco()));
-            stmt.setString(4, Integer.toString(produto.getQtdEst()));
+            stmt.setString(1, Integer.toString(produto.getId()));
+            stmt.setString(2, produto.getNome());
+            stmt.setString(3, produto.getDescr());
+            stmt.setString(4, Float.toString(produto.getPreco()));
+            stmt.setString(5, Integer.toString(produto.getQtdEst()));
 
             stmt.execute();
 
         }catch(SQLException ex){System.out.println("Erro ao insetir produto: " + ex.getMessage());
         }
     }     
-        public ProdutoC getPessoa(int id){
+      /*  public ProdutoC getPessoa(int id){
             String sql = "SELECT  * FROM Produto WHERE id = ?";
             try{
                 PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
@@ -89,5 +93,30 @@ public class ProdutoDAO {
             }catch(SQLException ex){
                 System.out.println("Erro ao excluir pessoa: " + ex.getMessage());
             }
+        }*/
+        
+        public List<ProdutoC> listar(){
+        List<ProdutoC> lista = new ArrayList<>();
+            try{
+                String sql = "select * from produto";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                    ProdutoC obj = new ProdutoC();
+                    
+                    obj.setId(rs.getInt("pro_id"));
+                    obj.setNome(rs.getString("pro_nome"));
+                    obj.setDescr(rs.getString("pro_descricao"));
+                    obj.setQtdEst(rs.getInt("pro_estoque"));
+                    obj.setPreco(rs.getFloat("pro_preco"));
+                    
+                    lista.add(obj);
+                }
+                return lista;
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "erro ao criar a lista" + e);
+            }
+            return null;
         }
 }

@@ -24,19 +24,17 @@ public class Menu extends javax.swing.JFrame {
         btnCliente = new javax.swing.JButton();
         btnLanc = new javax.swing.JButton();
         btnForn = new javax.swing.JButton();
-        btnListarProd = new javax.swing.JButton();
-        btnListarProd1 = new javax.swing.JButton();
-        btnListarProd2 = new javax.swing.JButton();
-        btnListarProd3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(212, 110, 104));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("MENU LIVRARIA");
 
         btnProduto.setBackground(new java.awt.Color(212, 104, 152));
+        btnProduto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnProduto.setForeground(new java.awt.Color(255, 255, 255));
         btnProduto.setText("Cadastro de produto");
         btnProduto.addActionListener(new java.awt.event.ActionListener() {
@@ -46,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnCliente.setBackground(new java.awt.Color(212, 104, 152));
+        btnCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnCliente.setForeground(new java.awt.Color(255, 255, 255));
         btnCliente.setText("Cadastro de cliente");
         btnCliente.addActionListener(new java.awt.event.ActionListener() {
@@ -55,6 +54,7 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnLanc.setBackground(new java.awt.Color(212, 104, 152));
+        btnLanc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnLanc.setForeground(new java.awt.Color(255, 255, 255));
         btnLanc.setText("Lançamento de notas");
         btnLanc.addActionListener(new java.awt.event.ActionListener() {
@@ -64,47 +64,12 @@ public class Menu extends javax.swing.JFrame {
         });
 
         btnForn.setBackground(new java.awt.Color(212, 104, 152));
+        btnForn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnForn.setForeground(new java.awt.Color(255, 255, 255));
         btnForn.setText("Cadastro de fornecedores");
         btnForn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFornActionPerformed(evt);
-            }
-        });
-
-        btnListarProd.setBackground(new java.awt.Color(212, 104, 152));
-        btnListarProd.setForeground(new java.awt.Color(255, 255, 255));
-        btnListarProd.setText("Listar clientes");
-        btnListarProd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarProdActionPerformed(evt);
-            }
-        });
-
-        btnListarProd1.setBackground(new java.awt.Color(212, 104, 152));
-        btnListarProd1.setForeground(new java.awt.Color(255, 255, 255));
-        btnListarProd1.setText("Listar produtos");
-        btnListarProd1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarProd1ActionPerformed(evt);
-            }
-        });
-
-        btnListarProd2.setBackground(new java.awt.Color(212, 104, 152));
-        btnListarProd2.setForeground(new java.awt.Color(255, 255, 255));
-        btnListarProd2.setText("Listar fornecedores");
-        btnListarProd2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarProd2ActionPerformed(evt);
-            }
-        });
-
-        btnListarProd3.setBackground(new java.awt.Color(212, 104, 152));
-        btnListarProd3.setForeground(new java.awt.Color(255, 255, 255));
-        btnListarProd3.setText("Listar notas");
-        btnListarProd3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnListarProd3ActionPerformed(evt);
             }
         });
 
@@ -115,56 +80,37 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(108, 108, 108)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnListarProd1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnForn)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnListarProd2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnListarProd, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnLanc, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(btnListarProd3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(169, 169, 169)
-                        .addComponent(jLabel1)))
-                .addGap(0, 165, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(178, 178, 178)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(btnLanc, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
+                            .addComponent(btnForn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
+                .addGap(0, 199, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProduto)
-                    .addComponent(btnListarProd1, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnListarProd, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(btnProduto)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnLanc)
-                    .addComponent(btnListarProd3, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnForn)
-                    .addComponent(btnListarProd2, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addComponent(btnLanc)
+                .addGap(18, 18, 18)
+                .addComponent(btnForn)
+                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCliente, btnForn, btnLanc, btnProduto});
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClienteActionPerformed
@@ -186,22 +132,6 @@ public class Menu extends javax.swing.JFrame {
         new Fornecedor().setVisible(true);
         dispose();
     }//GEN-LAST:event_btnFornActionPerformed
-
-    private void btnListarProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnListarProdActionPerformed
-
-    private void btnListarProd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProd1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnListarProd1ActionPerformed
-
-    private void btnListarProd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProd2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnListarProd2ActionPerformed
-
-    private void btnListarProd3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnListarProd3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnListarProd3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -245,10 +175,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnForn;
     private javax.swing.JButton btnLanc;
-    private javax.swing.JButton btnListarProd;
-    private javax.swing.JButton btnListarProd1;
-    private javax.swing.JButton btnListarProd2;
-    private javax.swing.JButton btnListarProd3;
     private javax.swing.JButton btnProduto;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables

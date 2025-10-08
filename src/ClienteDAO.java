@@ -3,6 +3,11 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import java.util.ArrayList;
+import java.util.List;
+
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -69,6 +74,8 @@ public class ClienteDAO {
             }
         }
         
+        
+        
         public void editar(ClienteC cliente){
             try{
                 String sql = "UPDATE Cliente SET nome = ?, sexo = ?, idioma = ? WHERE id = ?";
@@ -96,5 +103,29 @@ public class ClienteDAO {
             }catch(SQLException ex){
                 System.out.println("Erro ao excluir pessoa: " + ex.getMessage());
             }
+        }
+        
+        public List<ClienteC> listar(){
+        List<ClienteC> lista = new ArrayList<>();
+            try{
+                String sql = "select * from cliente";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                    ClienteC obj = new ClienteC();
+                    
+                    obj.setId(rs.getInt("cli_id"));
+                    obj.setNome(rs.getString("cli_nome"));
+                    obj.setEmail(rs.getString("cli_email"));
+                    obj.setTelefone(rs.getString("cli_tel"));
+                    
+                    lista.add(obj);
+                }
+                return lista;
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "erro ao criar a lista" + e);
+            }
+            return null;
         }
 }
