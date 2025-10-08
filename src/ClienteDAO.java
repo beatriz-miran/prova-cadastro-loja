@@ -24,7 +24,7 @@ public class ClienteDAO {
     }
 
     public void inserir(ClienteC cliente) {
-        String sql = "INSERT INTO Cliente(cli_id, cli_nome, cli_email, cli_tel, cli_cep, cli_rua, cli_cidade, cli_numero, cli_bairro, cli_estado) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO Cliente(cli_id, cli_nome, cli_email, cli_tel, cli_cep, cli_rua, cli_cidade, cli_numero, cli_bairro, cli_uf) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);

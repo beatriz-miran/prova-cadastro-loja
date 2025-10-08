@@ -24,7 +24,7 @@ public class ProdutoDAO {
     }
 
     public void inserir(ProdutoC produto) {
-        String sql = "INSERT INTO Produto (prod_nome, prod_descr, prod_preco, prod_qtdEst) VALUES(?, ?, ?, ?);";
+        String sql = "INSERT INTO Produto (pro_nome, pro_descricao, prod_preco, prod_estoque) VALUES(?, ?, ?, ?);";
 
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
@@ -35,8 +35,7 @@ public class ProdutoDAO {
 
             stmt.execute();
 
-        }catch(SQLException ex){
-        System.out.println("Erro ao insetir pessoa: " + ex.getMessage());
+        }catch(SQLException ex){System.out.println("Erro ao insetir produto: " + ex.getMessage());
         }
     }     
         public ProdutoC getPessoa(int id){
