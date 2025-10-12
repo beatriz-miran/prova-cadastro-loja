@@ -1,4 +1,7 @@
+package br.com.sistema.dao;
+
     
+import br.com.sistema.model.Conexao;
 import br.com.sistema.model.ProdutoC;
 import br.com.sistema.model.FornecedorC;
 import java.sql.Connection;
@@ -164,4 +167,48 @@ public class ProdutoDAO {
                 return null;
             }
         }
+        
+        public int retornaQtdEstoque(int id){
+            try{
+                int qtdAtual = 0;
+                String sql = "select pro_estoque from produto where id = ?";
+                
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                stmt.setInt(1, id);
+                ResultSet rs = stmt.executeQuery();
+                
+                if(rs.next()){
+                    qtdAtual = (rs.getInt("pro_estoque"));
+                }return qtdAtual;
+            }catch(Exception e){
+                throw new RuntimeException("Erro" + e);
+            }
+        }
+        
+        public void baixaEstoque(int id, int qtdAtl) {
+            try {
+                String sql = "UPDATE produto SET pro_estoque = ? WHERE pro_id = ?";
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+
+                stmt.setInt(1, qtdAtl);
+                stmt.setInt(2, id);
+
+                stmt.executeUpdate();
+
+                System.out.println("Estoque atualizado com sucesso para o produto ID: " + id);
+
+            } catch (SQLException e) {
+                System.err.println("Erro ao atualizar o estoque: " + e.getMessage());
+                JOptionPane.showMessageDialog(null, "Erro ao atualizar o estoque: " + e.getMessage());
+        //    } finally {
+        //        try {
+        //            if (stmt != null) stmt.close();
+        //            if (conn != null) conn.close();
+        //        } catch (SQLException e) {
+        //            System.err.println("Erro ao fechar conexão: " + e.getMessage());
+        //        }
+            }
+}
+
 }

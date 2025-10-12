@@ -1,4 +1,7 @@
+package br.com.sistema.dao;
 
+
+import br.com.sistema.model.Conexao;
 import br.com.sistema.model.ProdutoC;
 import br.com.sistema.model.FornecedorC;
 import java.sql.Connection;

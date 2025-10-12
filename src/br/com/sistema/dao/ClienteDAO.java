@@ -1,4 +1,7 @@
+package br.com.sistema.dao;
 
+
+import br.com.sistema.model.Conexao;
 import br.com.sistema.model.ClienteC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

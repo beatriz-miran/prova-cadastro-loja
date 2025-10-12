@@ -1,3 +1,5 @@
+package br.com.sistema.model;
+
 
 import java.sql.Connection;
 import java.sql.DriverManager;
