@@ -1,4 +1,5 @@
 
+import br.com.sistema.model.ClienteC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,19 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author 2830482411044
- */
 public class ClienteDAO {
-     private Conexao conexao;
+    private Conexao conexao;
     private Connection conn;
 
     public ClienteDAO() {
@@ -29,7 +19,7 @@ public class ClienteDAO {
     }
 
     public void inserir(ClienteC cliente) {
-        String sql = "INSERT INTO Cliente(cli_id, cli_nome, cli_email, cli_tel, cli_cep, cli_rua, cli_cidade, cli_numero, cli_bairro, cli_uf) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO Cliente(cli_id, cli_nome, cli_email, cli_tel, cli_cep, cli_rua, cli_cidade, cli_numero, cli_bairro, cli_uf, cli_cpf) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
@@ -43,6 +33,7 @@ public class ClienteDAO {
             stmt.setString(8, Integer.toString(cliente.getNumero()));
             stmt.setString(9, cliente.getBairro());
             stmt.setString(10, cliente.getEstado());
+            stmt.setString(11, cliente.getCpf());
 
             stmt.execute();
 
@@ -127,5 +118,26 @@ public class ClienteDAO {
                 JOptionPane.showMessageDialog(null, "erro ao criar a lista" + e);
             }
             return null;
+        }
+        
+            public ClienteC buscarCpf(String cpf){
+            String sql = "SELECT  * FROM Cliente WHERE cli_cpf = ?";
+            try{
+                PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                stmt.setString(1, cpf);;
+                ResultSet rs = stmt.executeQuery();
+                
+                ClienteC p = new ClienteC();
+                
+                rs.first();
+                p.setCpf(cpf);
+                p.setNome(rs.getString("cli_nome"));
+                
+                return p;
+                        
+            }catch(SQLException ex){
+                System.out.println("Erro ao consultar pessoa: " + ex.getMessage());
+                return null;
+            }
         }
 }

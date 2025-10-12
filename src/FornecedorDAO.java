@@ -1,8 +1,13 @@
 
+import br.com.sistema.model.ProdutoC;
+import br.com.sistema.model.FornecedorC;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.JOptionPane;
 
 
 public class FornecedorDAO {
@@ -15,7 +20,7 @@ public class FornecedorDAO {
     }
 
     public void inserir(FornecedorC fornecedor) {
-        String sql = "INSERT INTO Forcedor(for_nome, for_nome_fantasia, for_cnpj, for_email, for_tel, for_rua, for_cep, for_bairro, for_uf, for_numero, for_cidade) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO Fornecedor(for_nome, for_nome_fantasia, for_cnpj, for_email, for_tel, for_rua, for_cep, for_bairro, for_uf, for_numero, for_cidade) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
 
         try{
             PreparedStatement stmt = this.conn.prepareStatement(sql);
@@ -58,6 +63,39 @@ public class FornecedorDAO {
                 System.out.println("Erro ao consultar pessoa: " + ex.getMessage());
                 return null;
             }
+        }
+        
+        
+        public List<FornecedorC> listar(){
+        List<FornecedorC> lista = new ArrayList<>();
+            try{
+                String sql = "select * from fornecedor";
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                ResultSet rs = stmt.executeQuery();
+                
+                while(rs.next()){
+                    FornecedorC obj = new FornecedorC();
+                    
+                    obj.setId(rs.getInt("for_id"));
+                    obj.setNome(rs.getString("for_nome"));
+                    obj.setNome_fantasia(rs.getString("for_nome_fantasia"));
+                    obj.setCnpj(rs.getString("for_cnpj"));
+                    obj.setEmail(rs.getString("for_email"));
+                    obj.setTelefone(rs.getString("for_tel"));
+                    obj.setRua(rs.getString("for_rua"));
+                    obj.setCep(rs.getString("for_cep"));
+                    obj.setBairro(rs.getString("for_bairro"));
+                    obj.setEstado(rs.getString("for_uf"));
+                    obj.setNumero(rs.getInt("for_numero"));
+                    obj.setCidade(rs.getString("for_cidade"));
+                    
+                    lista.add(obj);
+                }
+                return lista;
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "erro ao criar a lista" + e);
+            }
+            return null;
         }
         
 }

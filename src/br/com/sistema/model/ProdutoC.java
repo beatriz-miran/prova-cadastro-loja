@@ -1,3 +1,8 @@
+package br.com.sistema.model;
+
+
+import br.com.sistema.model.FornecedorC;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,6 +19,7 @@ public class ProdutoC {
     private String descr;
     private float preco;
     private int qtdEst;
+    private FornecedorC fornecedor;
     
     public int getId(){
         return id;
@@ -46,8 +52,17 @@ public class ProdutoC {
     public void setQtdEst(int qtdEst){
         this.qtdEst = qtdEst;
     }
+
+    public FornecedorC getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(FornecedorC fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+    
     
     public Object[] obterDados(){
-     return new Object[] {id, nome, descr, preco, qtdEst};
+     return new Object[] {id, nome, descr, preco, qtdEst, fornecedor};
     }
 }

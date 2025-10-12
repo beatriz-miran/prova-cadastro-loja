@@ -1,6 +1,7 @@
 
 
 
+
 public class Menu extends javax.swing.JFrame {
 
     /**
@@ -36,6 +37,7 @@ public class Menu extends javax.swing.JFrame {
         btnProduto.setBackground(new java.awt.Color(212, 104, 152));
         btnProduto.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnProduto.setForeground(new java.awt.Color(255, 255, 255));
+        btnProduto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-book-96.png"))); // NOI18N
         btnProduto.setText("Cadastro de produto");
         btnProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +48,7 @@ public class Menu extends javax.swing.JFrame {
         btnCliente.setBackground(new java.awt.Color(212, 104, 152));
         btnCliente.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnCliente.setForeground(new java.awt.Color(255, 255, 255));
+        btnCliente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-businesswoman-96.png"))); // NOI18N
         btnCliente.setText("Cadastro de cliente");
         btnCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -56,6 +59,7 @@ public class Menu extends javax.swing.JFrame {
         btnLanc.setBackground(new java.awt.Color(212, 104, 152));
         btnLanc.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnLanc.setForeground(new java.awt.Color(255, 255, 255));
+        btnLanc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-note-94.png"))); // NOI18N
         btnLanc.setText("Lançamento de notas");
         btnLanc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,6 +70,7 @@ public class Menu extends javax.swing.JFrame {
         btnForn.setBackground(new java.awt.Color(212, 104, 152));
         btnForn.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnForn.setForeground(new java.awt.Color(255, 255, 255));
+        btnForn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/icons8-shop-96.png"))); // NOI18N
         btnForn.setText("Cadastro de fornecedores");
         btnForn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -78,18 +83,17 @@ public class Menu extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(178, 178, 178)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnProduto, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(btnCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(btnLanc, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE)
-                            .addComponent(btnForn, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))))
-                .addGap(0, 199, Short.MAX_VALUE))
+                .addGap(178, 178, 178)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLanc, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnForn, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 240, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(223, 223, 223)
+                .addComponent(jLabel1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -97,17 +101,15 @@ public class Menu extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(36, 36, 36)
-                .addComponent(btnProduto)
-                .addGap(18, 18, 18)
-                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnLanc)
-                .addGap(18, 18, 18)
-                .addComponent(btnForn)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addComponent(btnProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(btnLanc, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnForn, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(44, Short.MAX_VALUE))
         );
-
-        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnCliente, btnForn, btnLanc, btnProduto});
 
         pack();
         setLocationRelativeTo(null);

@@ -1,3 +1,5 @@
+package br.com.sistema.model;
+
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -10,6 +12,7 @@ import org.json.JSONArray;
 public class ClienteC {
     private int id;
     private String nome;
+    private String cpf;
     private String email;
     private String telefone;
     private String cep;
@@ -91,6 +94,14 @@ public class ClienteC {
     public void setEstado(String estado) {
         this.estado = estado;
     }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
   
     
     
@@ -120,6 +131,6 @@ public class ClienteC {
     }
      
      public Object[] obterDados(){
-     return new Object[] {id, nome, email, telefone};
+     return new Object[] {id, nome, cpf,email, telefone};
     }
 }
