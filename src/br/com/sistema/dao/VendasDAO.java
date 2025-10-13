@@ -1,11 +1,15 @@
 package br.com.sistema.dao;
 
 
+import br.com.sistema.model.ClienteC;
 import br.com.sistema.model.Conexao;
 import br.com.sistema.model.Vendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javax.swing.JOptionPane;
 
 /*
@@ -29,14 +33,14 @@ public class VendasDAO {
     
     public void salvarVenda(Vendas obj){
         try{
-            String sql = "insert into vendas (cliente_id, data_venda, total_Venda) values (?,?,?)";
+            String sql = "insert into vendas (id, cliente_id, data_venda, total_Venda) values (?,?,?,?)";
             
             PreparedStatement stmt = conn.prepareStatement(sql);
             
-            
-            stmt.setInt(1, obj.getClientes().getId());
-            stmt.setString(2, obj.getDataVenda());
-            stmt.setDouble(3, obj.getTotalVenda());
+            stmt.setInt(1, obj.getId());
+            stmt.setInt(2, obj.getClientes().getId());
+            stmt.setString(3, obj.getDataVenda());
+            stmt.setDouble(4, obj.getTotalVenda());
             stmt.execute();
             stmt.close();
             JOptionPane.showMessageDialog(null, "Venda realizada com sucesso");
@@ -60,4 +64,7 @@ public class VendasDAO {
             throw new RuntimeException("Erro");
         }
     }
+    
+    
+    
 }

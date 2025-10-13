@@ -38,59 +38,7 @@ public class ProdutoDAO {
 
         }catch(SQLException ex){System.out.println("Erro ao insetir produto: " + ex.getMessage());
         }
-    }     
-      /*  public ProdutoC getPessoa(int id){
-            String sql = "SELECT  * FROM Produto WHERE id = ?";
-            try{
-                PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                stmt.setInt(1, id);
-                ResultSet rs = stmt.executeQuery();
-                
-                ProdutoC p = new ProdutoC();
-                
-                rs.first();
-                p.setId(id);
-                p.setNome(rs.getString("nome"));
-                p.setDescr(rs.getString("descr"));
-                //p.setPreco(Float.toString(rs.getString("preco")));
-                //p.setQtdEst(Integer.toString(rs.getString("qtdEst")));
-                
-                return p;
-                        
-            }catch(SQLException ex){
-                System.out.println("Erro ao consultar pessoa: " + ex.getMessage());
-                return null;
-            }
-        }
-        
-        public void editar(ProdutoC produto){
-            try{
-                String sql = "UPDATE Produto SET nome = ?, sexo = ?, idioma = ? WHERE id = ?";
-                
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                stmt.setString(1,produto.getNome());
-                stmt.setString(2,produto.getDescr());
-               // stmt.setString(3,produto.getPreco());
-                stmt.setInt(4, produto.getId());
-                
-                stmt.execute();
-            }
-            catch(SQLException ex){
-                System.out.println("Erro ao atualizar pessoa: " + ex.getMessage());
-            }
-        }
-        
-        public void excluir (int id){
-            try{
-                String sql = "DELETE FROM Produto WHERE id = ?";
-                
-                PreparedStatement stmt = conn.prepareStatement(sql);
-                stmt.setInt(1, id);
-                stmt.execute();
-            }catch(SQLException ex){
-                System.out.println("Erro ao excluir pessoa: " + ex.getMessage());
-            }
-        }*/
+    }    
         
         public List<ProdutoC> listar(){
         List<ProdutoC> lista = new ArrayList<>();
@@ -171,7 +119,7 @@ public class ProdutoDAO {
         public int retornaQtdEstoque(int id){
             try{
                 int qtdAtual = 0;
-                String sql = "select pro_estoque from produto where id = ?";
+                String sql = "select pro_estoque from produto where pro_id = ?";
                 
                 PreparedStatement stmt = conn.prepareStatement(sql);
                 stmt.setInt(1, id);
@@ -201,13 +149,7 @@ public class ProdutoDAO {
             } catch (SQLException e) {
                 System.err.println("Erro ao atualizar o estoque: " + e.getMessage());
                 JOptionPane.showMessageDialog(null, "Erro ao atualizar o estoque: " + e.getMessage());
-        //    } finally {
-        //        try {
-        //            if (stmt != null) stmt.close();
-        //            if (conn != null) conn.close();
-        //        } catch (SQLException e) {
-        //            System.err.println("Erro ao fechar conexão: " + e.getMessage());
-        //        }
+
             }
 }
 

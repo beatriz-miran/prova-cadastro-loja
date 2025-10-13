@@ -274,11 +274,11 @@ public class Pagamento extends javax.swing.JFrame {
                      item.setVendas(v);
                      p.setId(Integer.valueOf(meusProdutos.getValueAt(i, 0).toString()));
                      item.setProdutos(p);
-                     item.setQtd(Integer.valueOf(meusProdutos.getValueAt(i, 2).toString()));
+                     item.setQtd(Integer.valueOf(meusProdutos.getValueAt(i, 3).toString()));
                      item.setSubtotal(Float.valueOf(meusProdutos.getValueAt(i, 4).toString()));
                      
                      qtdEstq = pdao.retornaQtdEstoque(p.getId());
-                     qtdComprada = Integer.valueOf(meusProdutos.getValueAt(i, 2).toString());
+                     qtdComprada = Integer.valueOf(meusProdutos.getValueAt(i, 3).toString());
                      qtdAtl = qtdEstq - qtdComprada;
                      
                      pdao.baixaEstoque(p.getId(), qtdAtl);

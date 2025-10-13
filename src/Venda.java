@@ -445,37 +445,7 @@ public class Venda extends javax.swing.JFrame {
 
     private void btnLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimparActionPerformed
      
-        String nome = txtNomeProd.getText();
-        ProdutoC prd = new ProdutoC();
-        ProdutoDAO dao = new ProdutoDAO();
-        prd = dao.buscarProdutoNome(nome);
-        
-        if(prd.getDescr() != null){
-            int estoque = Integer.valueOf(txtEstq.getText());
-            int quantidade = Integer.valueOf(txtQtd.getText());
-            preco = Float.valueOf(txtPrecProd.getText());
-            qtd = Integer.valueOf(txtQtd.getText());
-            
-            subtotal = preco * qtd;
-            total += subtotal;
-             
-            if(estoque >= quantidade){
-            txtTotalVend.setText(String.valueOf(total));
-            meusProdutos = (DefaultTableModel)tblCarrinho.getModel();
-            meusProdutos.addRow(new Object[]{
-                txtCodProd.getText(),
-                txtNomeProd.getText(),
-                txtPrecProd.getText(),
-                txtQtd.getText(),
-                subtotal
-            });
-        }else{
-                JOptionPane.showMessageDialog(null, "Algo deu errado");
-            }
-        }else{
-                    JOptionPane.showMessageDialog(null,"faltam informaçoes");
-                    }
-      
+//        limparForm();
     }//GEN-LAST:event_btnLimparActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
@@ -484,7 +454,7 @@ public class Venda extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void btnPagamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPagamentoActionPerformed
-      String nome = txtNomeProd.getText();
+      String nome = txtNome.getText();
       String cpf = txtCpf1.getText();
       obj = new ClienteC();
       
@@ -562,7 +532,37 @@ public class Venda extends javax.swing.JFrame {
     }//GEN-LAST:event_txtCodProdActionPerformed
 
     private void btnAdicionarItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdicionarItem1ActionPerformed
-        // TODO add your handling code here:
+       String nome = txtNomeProd.getText();
+        ProdutoC prd = new ProdutoC();
+        ProdutoDAO dao = new ProdutoDAO();
+        prd = dao.buscarProdutoNome(nome);
+        
+        if(prd.getDescr() != null){
+            int estoque = Integer.valueOf(txtEstq.getText());
+            int quantidade = Integer.valueOf(txtQtd.getText());
+            preco = Float.valueOf(txtPrecProd.getText());
+            qtd = Integer.valueOf(txtQtd.getText());
+            
+            subtotal = preco * qtd;
+            total += subtotal;
+             
+            if(estoque >= quantidade){
+            txtTotalVend.setText(String.valueOf(total));
+            meusProdutos = (DefaultTableModel)tblCarrinho.getModel();
+            meusProdutos.addRow(new Object[]{
+                txtCodProd.getText(),
+                txtNomeProd.getText(),
+                txtPrecProd.getText(),
+                txtQtd.getText(),
+                subtotal
+            });
+        }else{
+                JOptionPane.showMessageDialog(null, "Algo deu errado");
+            }
+        }else{
+                    JOptionPane.showMessageDialog(null,"faltam informaçoes");
+                    }
+      
     }//GEN-LAST:event_btnAdicionarItem1ActionPerformed
 
     /**
