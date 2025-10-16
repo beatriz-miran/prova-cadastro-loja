@@ -1,5 +1,6 @@
 
 # Sistema Hortifruti em JAVA 🍎☕
+!(src/imagens/atllogo.png)
 
 Projeto feito em JAVA com a finalidade de gerir compras, produtos, clientes e fornecedores de uma rede de hortifrutis.
 
@@ -13,7 +14,7 @@ Projeto feito em JAVA com a finalidade de gerir compras, produtos, clientes e fo
 - Sistema de vendas
 - Preenchimento automatico de campos
 
-![Descrição da Tela Inicial](src/imagens/logo.png)
+
 
 ## Stack utilizada
 
