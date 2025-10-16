@@ -262,7 +262,7 @@ public class Pagamento extends javax.swing.JFrame {
          VendasDAO vd = new VendasDAO();
          vd.salvarVenda(v);
                  v.setId(vd.retornaUltimoIdVenda());
-                 JOptionPane.showMessageDialog(null, "ID da ultima venda"+ v.getId());
+                 JOptionPane.showMessageDialog(null, "ID da ultima venda: "+ v.getId());
                  
                  for(int i = 0; i < meusProdutos.getRowCount(); i++){
                      int qtdEstq, qtdComprada, qtdAtl;
@@ -286,6 +286,7 @@ public class Pagamento extends javax.swing.JFrame {
                      ItensVendaDAO ivd = new ItensVendaDAO();
                      ivd.salvar(item);
                      
+                     dispose();
                  }
      }else{
          JOptionPane.showMessageDialog(null, "Nao foi possivel concluir a venda");

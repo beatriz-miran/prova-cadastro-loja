@@ -44,29 +44,6 @@ public class FornecedorDAO {
         }catch(SQLException ex){System.out.println("Erro ao insetir fornecedor: " + ex.getMessage());
         }
     }     
-        public ProdutoC getPessoa(int id){
-            String sql = "SELECT  * FROM Fornecedor WHERE id = ?";
-            try{
-                PreparedStatement stmt = conn.prepareStatement(sql, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_UPDATABLE);
-                stmt.setInt(1, id);
-                ResultSet rs = stmt.executeQuery();
-                
-                ProdutoC p = new ProdutoC();
-                
-                rs.first();
-                p.setId(id);
-                p.setNome(rs.getString("nome"));
-                p.setDescr(rs.getString("descr"));
-                //p.setPreco(Float.toString(rs.getString("preco")));
-                //p.setQtdEst(Integer.toString(rs.getString("qtdEst")));
-                
-                return p;
-                        
-            }catch(SQLException ex){
-                System.out.println("Erro ao consultar pessoa: " + ex.getMessage());
-                return null;
-            }
-        }
         
         
         public List<FornecedorC> listar(){

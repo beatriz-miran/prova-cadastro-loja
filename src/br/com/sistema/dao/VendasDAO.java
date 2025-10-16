@@ -12,16 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author beatr
- */
 public class VendasDAO {
       private Conexao conexao;
     private Connection conn;
@@ -33,7 +24,7 @@ public class VendasDAO {
     
     public void salvarVenda(Vendas obj){
         try{
-            String sql = "insert into vendas (id, cliente_id, data_venda, total_Venda) values (?,?,?,?)";
+            String sql = "insert into vendas (ven_id, ven_cliente_id, ven_data_venda, ven_total_Venda) values (?,?,?,?)";
             
             PreparedStatement stmt = conn.prepareStatement(sql);
             
@@ -49,21 +40,24 @@ public class VendasDAO {
         }
     }
     
-    public int retornaUltimoIdVenda(){
-        try{
-            int ultimoId = 0;
-            String sql = "select max(id) id from vendas";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-            while(rs.next()){
-                Vendas v = new Vendas();
-                v.setId(rs.getInt("id"));
-                ultimoId = v.getId();
-            }return ultimoId;
-        }catch(Exception e){
-            throw new RuntimeException("Erro");
+    public int retornaUltimoIdVenda() {
+    try {
+        int ultimoId = 0;
+        String sql = "SELECT MAX(ven_id) AS id FROM vendas";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        if (rs.next()) {
+            ultimoId = rs.getInt("id"); // nome da coluna do alias
         }
+
+        return ultimoId;
+    } catch (Exception e) {
+        e.printStackTrace(); // 🔥 Mostra o erro original no console
+        throw new RuntimeException("Erro ao buscar último ID da venda: " + e.getMessage());
     }
+}
+
     
     
     

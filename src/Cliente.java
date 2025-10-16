@@ -7,6 +7,8 @@ import javax.swing.table.DefaultTableModel;
 import org.json.JSONObject;
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JFormattedTextField;
+import javax.swing.text.MaskFormatter;
 
 
 
@@ -40,6 +42,8 @@ public class Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextPane1 = new javax.swing.JTextPane();
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
@@ -72,6 +76,8 @@ public class Cliente extends javax.swing.JFrame {
         btnSalvar = new javax.swing.JButton();
         btnVoltar = new javax.swing.JButton();
         btnLimpar = new javax.swing.JButton();
+
+        jScrollPane2.setViewportView(jTextPane1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 255, 0));
@@ -204,7 +210,7 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        jLabel10.setText("UF");
+        jLabel10.setText("Estado");
 
         txtUf.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         txtUf.addActionListener(new java.awt.event.ActionListener() {
@@ -260,9 +266,9 @@ public class Cliente extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel11)))
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(txtCep, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel10)
@@ -270,12 +276,12 @@ public class Cliente extends javax.swing.JFrame {
                         .addComponent(txtUf, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtRua, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtBairro, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCidade, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNum, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtRua)
+                            .addComponent(txtCidade)
+                            .addComponent(txtBairro, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNum))))
+                .addGap(26, 26, 26))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -312,7 +318,7 @@ public class Cliente extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(32, 32, 32)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -614,7 +620,9 @@ public class Cliente extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
+    private javax.swing.JTextPane jTextPane1;
     private javax.swing.JTable tblProd;
     private javax.swing.JTextField txtBairro;
     private javax.swing.JTextField txtCep;

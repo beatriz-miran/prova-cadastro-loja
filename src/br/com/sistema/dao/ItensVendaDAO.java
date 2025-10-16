@@ -6,16 +6,7 @@ import br.com.sistema.model.ItensVendas;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
-/**
- *
- * @author beatr
- */
 public class ItensVendaDAO {
     private Conexao conexao;
     private Connection conn;
@@ -27,7 +18,7 @@ public class ItensVendaDAO {
     
     public void salvar(ItensVendas obj){
         try{
-            String sql = "insert into itensvendas(venda_id, produto_id, qtd, subtotal)values(?,?,?,?)";
+            String sql = "insert into itensvendas(itm_venda_id, itm_produto_id, itm_qtd, itm_subtotal)values(?,?,?,?)";
             PreparedStatement stmt = conn.prepareStatement(sql);
             stmt.setInt(1, obj.getVendas().getId());
             stmt.setInt(2, obj.getProdutos().getId());
@@ -37,7 +28,8 @@ public class ItensVendaDAO {
             stmt.execute();
             stmt.close();
         }catch(Exception e){
-            throw new RuntimeException("Erro");
+           e.printStackTrace(); // mostra o erro no console
+    throw new RuntimeException("Erro ao salvar item da venda: " + e.getMessage());
         }
     }
 }
