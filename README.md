@@ -13,6 +13,7 @@ Projeto feito em JAVA com a finalidade de gerir compras, produtos, clientes e fo
 - Sistema de vendas
 - Preenchimento automatico de campos
 
+![Descrição da Tela Inicial](src/imagens/logo.png)
 
 ## Stack utilizada
 
