@@ -1,6 +1,6 @@
 
 # Sistema Hortifruti em JAVA 🍎☕
-![Hortifruti](src/imagens/logoatl.png)
+![Hortifruti](src/imagens/logoatl.jpg)
 
 Projeto feito em JAVA com a finalidade de gerir compras, produtos, clientes e fornecedores de uma rede de hortifrutis.
 
