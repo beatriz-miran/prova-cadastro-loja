@@ -1,7 +1,7 @@
 
 # Sistema Hortifruti em JAVA 🍎☕
 
-<p align="left">
+<p align="center">
   <img src="src/imagens/logoatl.jpg" alt="Descrição da Tela Inicial" width="450px"/>
 </p>
 
