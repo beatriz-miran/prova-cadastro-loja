@@ -57,6 +57,37 @@ public class VendasDAO {
         throw new RuntimeException("Erro ao buscar último ID da venda: " + e.getMessage());
     }
 }
+    
+    public List<Vendas> listarVendas() {
+    List<Vendas> lista = new ArrayList<>();
+    try {
+        String sql = "SELECT v.ven_id, v.ven_data_venda, v.ven_total_venda, c.cli_nome " +
+                     "FROM vendas AS v INNER JOIN cliente AS c ON v.ven_cliente_id = c.cli_id";
+
+        PreparedStatement stmt = conn.prepareStatement(sql);
+        ResultSet rs = stmt.executeQuery();
+
+        while (rs.next()) {
+            Vendas venda = new Vendas();
+            ClienteC cliente = new ClienteC();
+
+            venda.setId(rs.getInt("ven_id"));
+            venda.setDataVenda(rs.getString("ven_data_venda"));
+            venda.setTotalVenda(rs.getDouble("ven_total_venda"));
+
+            cliente.setNome(rs.getString("cli_nome"));
+            venda.setClientes(cliente);
+
+            lista.add(venda);
+        }
+
+        return lista;
+
+    } catch (Exception e) {
+        e.printStackTrace();
+        return null;
+    }
+}
 
     
     
