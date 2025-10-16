@@ -6,12 +6,18 @@ CREATE TABLE produto (
   pro_nome VARCHAR(150) NOT NULL,
   pro_descricao TEXT,
   pro_preco DECIMAL(10,2) NOT NULL DEFAULT 0.00,
-  pro_estoque INT NOT NULL
+  pro_estoque INT NOT NULL,
+  for_id int,
+  foreign key (for_id) references fornecedor(for_id)
 );
+
+select * from produto;
+SELECT * FROM cliente WHERE cli_id = 2;
 
 CREATE TABLE cliente (
   cli_id INT AUTO_INCREMENT PRIMARY KEY,
   cli_nome VARCHAR(150) NOT NULL,
+  cli_cpf varchar(20),
   cli_email VARCHAR(120),
   cli_tel VARCHAR(50),
   cli_rua varchar(50),
@@ -40,27 +46,39 @@ CREATE TABLE fornecedor (
   for_cidade varchar(50)
 );
 
-CREATE TABLE nota (
-  not_id INT AUTO_INCREMENT PRIMARY KEY,
-  not_tipo ENUM('E','S') NOT NULL,
-  not_cli_id INT NULL,      -- usado em vendas
-  not_for_id INT NULL,      -- usado em entradas
-  not_data DATE NOT NULL,
-  not_valor_total DECIMAL(12,2) NOT NULL DEFAULT 0.00,
-  not_observacao TEXT,
-  FOREIGN KEY (not_cli_id) REFERENCES cli_cliente(cli_id) ON DELETE SET NULL,
-  FOREIGN KEY (not_for_id) REFERENCES for_fornecedor(for_id) ON DELETE SET NULL
+
+
+CREATE TABLE itensvendas (
+  itm_id int(11) primary key auto_increment,
+  itm_venda_id int(11),
+  itm_produto_id int(11),
+  itm_qtd int(11),
+  itm_subtotal decimal(10,2) 
+) ;
+drop table itensvendas;
+select * from itensvendas;
+
+CREATE TABLE vendas (
+  ven_id int primary key auto_increment,
+  ven_cliente_id int,
+  ven_data_venda datetime,
+  ven_total_venda decimal(10,2),
+  foreign key (ven_cliente_id) references cliente(cli_id)
 );
 
-CREATE TABLE nit_item_nota (
-  nit_id INT AUTO_INCREMENT PRIMARY KEY,
-  nit_not_id INT NOT NULL,
-  nit_pro_id INT NOT NULL,
-  nit_qtde INT NOT NULL,
-  nit_preco_unit DECIMAL(10,2) NOT NULL,
-  nit_subtotal DECIMAL(12,2) NOT NULL,
-  FOREIGN KEY (nit_not_id) REFERENCES not_nota(not_id) ON DELETE CASCADE,
-  FOREIGN KEY (nit_pro_id) REFERENCES pro_produto(pro_id) ON DELETE RESTRICT
+select * from vendas;
+INSERT INTO vendas (ven_cliente_id, ven_data_venda, ven_total_venda)
+VALUES (1, '2025-10-13 10:00:00', 250.00);
+select max(ven_id) from vendas;
+
+CREATE TABLE ia_respostas (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  pergunta VARCHAR(255) NOT NULL,
+  resposta TEXT NOT NULL
 );
 
+INSERT INTO ia_respostas (pergunta, resposta) VALUES
+('como acessar a tabela de clientes', 'Vá até o menu principal e clique em "Cadastro de Clientes".'),
+('como finalizar uma venda', 'Depois de adicionar os produtos, clique no botão "Finalizar Venda" na tela de pagamento.'),
+('como cadastrar um produto', 'No menu principal, acesse "Cadastro de Produtos" e preencha os campos necessários.');
 
